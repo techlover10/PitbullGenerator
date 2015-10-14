@@ -1,0 +1,8 @@
+city
+2
+Paris
+London
+Tokyo
+L.A.
+Vegas
+Sydney

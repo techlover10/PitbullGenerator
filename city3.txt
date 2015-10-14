@@ -1,0 +1,11 @@
+city
+3
+Miami
+Tacoma
+Atlanta
+Chicago
+Columbus
+El Paso
+Saint Louis
+Washington
+Buffalo

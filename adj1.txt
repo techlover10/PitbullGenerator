@@ -1,0 +1,10 @@
+adjective
+1
+hot
+cool
+chill
+fire
+fast
+slow
+cold
+cute

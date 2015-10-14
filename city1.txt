@@ -1,0 +1,7 @@
+city
+1
+Seoul
+Rome
+Prague
+Minsk
+Perth
