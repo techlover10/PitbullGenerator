@@ -86,23 +86,24 @@ end
 adj1 = dictionary('adj1.txt');
 adj2 = dictionary('adj2.txt');
 adj3 = dictionary('adj3.txt');
-adjDict = [adj1 adj2 adj3];
+adjDict = {adj1 adj2 adj3};
 adv1 = dictionary('adv1.txt');
 adv2 = dictionary('adv2.txt');
 adv3 = dictionary('adv3.txt');
-advDict = [adv1 adv2 adv3];
+advDict = {adv1 adv2 adv3};
 noun1 = dictionary('noun1.txt');
 noun2 = dictionary('noun2.txt');
 noun3 = dictionary('noun3.txt');
-nounDict = [noun1 noun2 noun3];
+nounDict = {noun1 noun2 noun3};
 verb1 = dictionary('verb1.txt');
 verb2 = dictionary('verb2.txt');
 verb3 = dictionary('verb3.txt');
-verbDict = [verb1 verb2 verb3];
+verbDict = {verb1 verb2 verb3};
 pronDict = dictionary('pronouns.txt');
 posspronDict = dictionary('possProns.txt');
 demonstrativeDict = dictionary('demonstratives.txt');
-fullDict = [adj1 adj2 adj3 noun1 noun2 noun3 verb1 verb2 verb3 pronDict posspronDict demonstrativeDict adv1 adv2 adv3];
+fullDict = {adj1 adj2 adj3 noun1 noun2 noun3 verb1 verb2 verb3 pronDict...
+           posspronDict demonstrativeDict adv1 adv2 adv3};
 
 %create title
 title = generateTitle(sentenceChain{1}.sChain,nounDict,verbDict,adjDict,demonstrativeDict,pronDict);
@@ -119,17 +120,17 @@ for i = 1:1:length(sSequence.converted)
             chorus{i}{word} = 'lineBreak';
         else
             if strcmp(wordTypesStruct{i}.converted{word},'Verb')
-                chorus{i}{word} = verbDict(sentenceChain{i}.sChain(word)).getWord;
+                chorus{i}{word} = verbDict{sentenceChain{i}.sChain(word)}.getWord;
             elseif strcmp(wordTypesStruct{i}.converted{word},'Subject')
-                chorus{i}{word} = nounDict(sentenceChain{i}.sChain(word)).getWord;
+                chorus{i}{word} = nounDict{sentenceChain{i}.sChain(word)}.getWord;
             elseif strcmp(wordTypesStruct{i}.converted{word},'Adjective')
-                chorus{i}{word} = adjDict(sentenceChain{i}.sChain(word)).getWord;
+                chorus{i}{word} = adjDict{sentenceChain{i}.sChain(word)}.getWord;
             elseif strcmp(wordTypesStruct{i}.converted{word},'Adverb')
-                chorus{i}{word} = advDict(sentenceChain{i}.sChain(word)).getWord;
+                chorus{i}{word} = advDict{sentenceChain{i}.sChain(word)}.getWord;
             elseif strcmp(wordTypesStruct{i}.converted{word},'Object')
-                chorus{i}{word} = nounDict(sentenceChain{i}.sChain(word)).getWord;
+                chorus{i}{word} = nounDict{sentenceChain{i}.sChain(word)}.getWord;
             else
-                chorus{i}{word} = fullDict(ceil(abs(rand*length(fullDict)))).getWord;
+                chorus{i}{word} = fullDict{ceil(abs(rand*length(fullDict)))}.getWord;
             end
         end
     end
@@ -189,22 +190,22 @@ for i = 1:1:length(sylArray)
 end
 titleType = ceil(rand*maxInd);
 if titleType ==1
-    title = {nounDict(sylArray(1)).getWord()};
+    title = {nounDict{sylArray(1)}.getWord()};
 elseif titleType ==2
     title = cell(1,2);
-    title{1} = adjDict(sylArray(1)).getWord();
-    title{2} = nounDict(sylArray(2)).getWord();
+    title{1} = adjDict{sylArray(1)}.getWord();
+    title{2} = nounDict{sylArray(2)}.getWord();
 elseif titleType == 3
     title = cell(1,3);
-    title{1} = verbDict(sylArray(1)).getWord();
+    title{1} = verbDict{sylArray(1)}.getWord();
     title{2} = demonstrativeDict.getWord();
-    title{3} = nounDict(sylArray(2)).getWord();
+    title{3} = nounDict{sylArray(2)}.getWord();
     
 else
     title = cell(1,3);
     title{1} = pronDict.getWord();
-    title{2} = verbDict(sylArray(2)).getWord();
-    title{3} = nounDict(sylArray(3)).getWord();
+    title{2} = verbDict{sylArray(2)}.getWord();
+    title{3} = nounDict{sylArray(3)}.getWord();
 end
 
 

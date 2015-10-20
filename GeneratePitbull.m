@@ -104,23 +104,23 @@ for currentSong = 1:1:numberOfSongs
     adj1 = dictionary('adj1.txt');
     adj2 = dictionary('adj2.txt');
     adj3 = dictionary('adj3.txt');
-    adjDict = [adj1 adj2 adj3];
+    adjDict = {adj1 adj2 adj3};
     adv1 = dictionary('adv1.txt');
     adv2 = dictionary('adv2.txt');
     adv3 = dictionary('adv3.txt');
-    advDict = [adv1 adv2 adv3];
+    advDict = {adv1 adv2 adv3};
     noun1 = dictionary('noun1.txt');
     noun2 = dictionary('noun2.txt');
     noun3 = dictionary('noun3.txt');
-    nounDict = [noun1 noun2 noun3];
+    nounDict = {noun1 noun2 noun3};
     verb1 = dictionary('verb1.txt');
     verb2 = dictionary('verb2.txt');
     verb3 = dictionary('verb3.txt');
-    verbDict = [verb1 verb2 verb3];
+    verbDict = {verb1 verb2 verb3};
     city1 = dictionary('city1.txt');
     city2 = dictionary('city2.txt');
     city3 = dictionary('city3.txt');
-    cityDict = [city1 city2 city3];
+    cityDict = {city1 city2 city3};
     interjDict = dictionary('interjections.txt');
     pronDict = dictionary('pronouns.txt');
     posspronDict = dictionary('possProns.txt');
@@ -140,12 +140,12 @@ for currentSong = 1:1:numberOfSongs
             elseif sSequence.endChain(i) == 5
                 rapLine{i}{1} = demonstrativeDict.getWord;
             elseif sSequence.endChain(i)==6
-                rapLine{i}{1} = verbDict((ceil(rand*length(verbDict)))).getWord;
+                rapLine{i}{1} = verbDict{(ceil(rand*length(verbDict)))}.getWord;
             elseif sSequence.endChain(i)==7
-                rapLine{i}{1} = adjDict((ceil(rand*length(adjDict)))).getWord;
+                rapLine{i}{1} = adjDict{(ceil(rand*length(adjDict)))}.getWord;
             end
         else
-            rapLine{i}{1} = cityDict(sentenceChain{i}.sChain(1)).getWord;
+            rapLine{i}{1} = cityDict{sentenceChain{i}.sChain(1)}.getWord;
         end
         
         for word = 2:1:(length(sentenceChain{i}.sChain))
@@ -154,17 +154,17 @@ for currentSong = 1:1:numberOfSongs
                 rapLine{i}{word} = 'lineBreak';
             else
                 if strcmp(wordTypesStruct{i}.converted{word},'Verb')
-                    rapLine{i}{word} = verbDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = verbDict{sentenceChain{i}.sChain(word)}.getWord;
                 elseif strcmp(wordTypesStruct{i}.converted{word},'Subject')
-                    rapLine{i}{word} = nounDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = nounDict{sentenceChain{i}.sChain(word)}.getWord;
                 elseif strcmp(wordTypesStruct{i}.converted{word},'Adjective')
-                    rapLine{i}{word} = adjDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = adjDict{sentenceChain{i}.sChain(word)}.getWord;
                 elseif strcmp(wordTypesStruct{i}.converted{word},'Adverb')
-                    rapLine{i}{word} = advDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = advDict{sentenceChain{i}.sChain(word)}.getWord;
                 elseif strcmp(wordTypesStruct{i}.converted{word},'Object')
-                    rapLine{i}{word} = nounDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = nounDict{sentenceChain{i}.sChain(word)}.getWord;
                 elseif strcmp(wordTypesStruct{i}.converted{word},'city')
-                    rapLine{i}{word} = cityDict(sentenceChain{i}.sChain(word)).getWord;
+                    rapLine{i}{word} = cityDict{sentenceChain{i}.sChain(word)}.getWord;
                 end
                 
             end
