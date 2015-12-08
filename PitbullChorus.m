@@ -83,25 +83,25 @@ for sentence = 1:1:length(sentenceChain)
 end
 
 %set up dictionaries
-adj1 = dictionary('adj1.txt');
-adj2 = dictionary('adj2.txt');
-adj3 = dictionary('adj3.txt');
+adj1 = dictionary('res/adj1.txt');
+adj2 = dictionary('res/adj2.txt');
+adj3 = dictionary('res/adj3.txt');
 adjDict = {adj1 adj2 adj3};
-adv1 = dictionary('adv1.txt');
-adv2 = dictionary('adv2.txt');
-adv3 = dictionary('adv3.txt');
+adv1 = dictionary('res/adv1.txt');
+adv2 = dictionary('res/adv2.txt');
+adv3 = dictionary('res/adv3.txt');
 advDict = {adv1 adv2 adv3};
-noun1 = dictionary('noun1.txt');
-noun2 = dictionary('noun2.txt');
-noun3 = dictionary('noun3.txt');
+noun1 = dictionary('res/noun1.txt');
+noun2 = dictionary('res/noun2.txt');
+noun3 = dictionary('res/noun3.txt');
 nounDict = {noun1 noun2 noun3};
-verb1 = dictionary('verb1.txt');
-verb2 = dictionary('verb2.txt');
-verb3 = dictionary('verb3.txt');
+verb1 = dictionary('res/verb1.txt');
+verb2 = dictionary('res/verb2.txt');
+verb3 = dictionary('res/verb3.txt');
 verbDict = {verb1 verb2 verb3};
-pronDict = dictionary('pronouns.txt');
-posspronDict = dictionary('possProns.txt');
-demonstrativeDict = dictionary('demonstratives.txt');
+pronDict = dictionary('res/pronouns.txt');
+posspronDict = dictionary('res/possProns.txt');
+demonstrativeDict = dictionary('res/demonstratives.txt');
 fullDict = {adj1 adj2 adj3 noun1 noun2 noun3 verb1 verb2 verb3 pronDict...
            posspronDict demonstrativeDict adv1 adv2 adv3};
 

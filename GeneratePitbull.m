@@ -7,7 +7,7 @@ n = numVerses*4-((numberOfChoruses)*4); %number of lines to be generated not inc
 s = 8; %number of syllables per line
 probInterj = 0.2; %percent chance of Pitbull starting a line with "Dale"
 probCities = 0.2; %percent chance of Pitbull listing random cities
-numberOfSongs = 1; %number of songs to generate
+numberOfSongs = 20; %number of songs to generate
 
 for currentSong = 1:1:numberOfSongs
     
@@ -101,30 +101,30 @@ for currentSong = 1:1:numberOfSongs
     end
     
     %set up dictionaries
-    adj1 = dictionary('adj1.txt');
-    adj2 = dictionary('adj2.txt');
-    adj3 = dictionary('adj3.txt');
+    adj1 = dictionary('res/adj1.txt');
+    adj2 = dictionary('res/adj2.txt');
+    adj3 = dictionary('res/adj3.txt');
     adjDict = {adj1 adj2 adj3};
-    adv1 = dictionary('adv1.txt');
-    adv2 = dictionary('adv2.txt');
-    adv3 = dictionary('adv3.txt');
+    adv1 = dictionary('res/adv1.txt');
+    adv2 = dictionary('res/adv2.txt');
+    adv3 = dictionary('res/adv3.txt');
     advDict = {adv1 adv2 adv3};
-    noun1 = dictionary('noun1.txt');
-    noun2 = dictionary('noun2.txt');
-    noun3 = dictionary('noun3.txt');
+    noun1 = dictionary('res/noun1.txt');
+    noun2 = dictionary('res/noun2.txt');
+    noun3 = dictionary('res/noun3.txt');
     nounDict = {noun1 noun2 noun3};
-    verb1 = dictionary('verb1.txt');
-    verb2 = dictionary('verb2.txt');
-    verb3 = dictionary('verb3.txt');
+    verb1 = dictionary('res/verb1.txt');
+    verb2 = dictionary('res/verb2.txt');
+    verb3 = dictionary('res/verb3.txt');
     verbDict = {verb1 verb2 verb3};
-    city1 = dictionary('city1.txt');
-    city2 = dictionary('city2.txt');
-    city3 = dictionary('city3.txt');
+    city1 = dictionary('res/city1.txt');
+    city2 = dictionary('res/city2.txt');
+    city3 = dictionary('res/city3.txt');
     cityDict = {city1 city2 city3};
-    interjDict = dictionary('interjections.txt');
-    pronDict = dictionary('pronouns.txt');
-    posspronDict = dictionary('possProns.txt');
-    demonstrativeDict = dictionary('demonstratives.txt');
+    interjDict = dictionary('res/interjections.txt');
+    pronDict = dictionary('res/pronouns.txt');
+    posspronDict = dictionary('res/possProns.txt');
+    demonstrativeDict = dictionary('res/demonstratives.txt');
     
     %create poem cell array
     %sSequence = sequence of sentence structures
@@ -188,7 +188,7 @@ for currentSong = 1:1:numberOfSongs
     
     
     %print poem cell array
-    outputPoem = fopen([title{:} '.txt'],'w');
+    outputPoem = fopen(['output/' title{:} '.txt'],'w');
     fprintf(outputPoem,'Song Title: ');
     fprintf(outputPoem,'%s',title{:});
     fprintf(outputPoem,'\n');
